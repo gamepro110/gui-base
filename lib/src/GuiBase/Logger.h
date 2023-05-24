@@ -28,10 +28,11 @@ namespace GuiBase {
         static LogLevel level;
     };
 
-    #define LOG(str)        Logger::log(str);
-    #define TRACE(str)      Logger::trace(str);
-    #define WARN(str)       Logger::warning(str);
-    #define ERROR(str)      Logger::error(str);
-    #define CRIT(str)       Logger::critical(str);
 }
+
+#define LOG(str)        GuiBase::Logger::log(str);
+#define TRACE(str)      GuiBase::Logger::trace(str);
+#define WARN(str)       GuiBase::Logger::warning(str);
+#define ERROR(str)      GuiBase::Logger::error(str);
+#define CRIT(str)       GuiBase::Logger::critical(str);
 

@@ -8,10 +8,10 @@
 class GuiExample : public GuiBase::Layer {
 public:
     void OnAttach() override {
-        GuiBase::TRACE("GuiExample layer onattach");
+        TRACE("GuiExample layer onattach");
     }
     void OnUpdate() override {
-        GuiBase::LOG("GuiExample layer onupdate");
+        LOG("GuiExample layer onupdate");
         ImGui::Begin("example window", NULL);
 
         ImGui::Text("showDemo: %c", showDemo ? 'Y' : '_');
@@ -33,7 +33,7 @@ public:
         ImGui::ShowDemoWindow(&showDemo);
     }
     void OnDetach() override {
-        GuiBase::TRACE("GuiExample layer ondetach");
+        TRACE("GuiExample layer ondetach");
     }
 
 private:
@@ -50,16 +50,16 @@ GuiBase::App* GuiBase::CreateApp(int argc, char** argv) {
 
     GuiBase::App* app = new GuiBase::App(settings);
     Logger::setLogLevel(LogLevel::trace);
-    GuiBase::LOG("app start");
+    LOG("app start");
 
     for (int i = 0; i < argc; i++) {
         std::string str{ "arg( " + std::to_string(i) + " )> " + argv[i] };
-        GuiBase::LOG(str);
+        LOG(str);
     }
 
     app->PushLayer<GuiExample>();
-    GuiBase::WARN("pushed layer 'tmp'");
+    WARN("pushed layer 'tmp'");
 
-    GuiBase::LOG("returning app*");
+    LOG("returning app*");
     return app;
 }
