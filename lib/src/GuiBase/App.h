@@ -31,13 +31,11 @@ namespace GuiBase {
 
         template<typename T>
 		void PushLayer() {
-            LOG({ "pushLayer<T> (T == " + std::string{ typeid(T).name() } + ")" });
 			static_assert(std::is_base_of<Layer, T>::value, "Pushed type is not subclass of Layer!!");
 			layerStack.emplace_back(std::make_shared<T>())->OnAttach();
 		}
 
 		void PushLayer(const std::shared_ptr<Layer>& layer) {
-            LOG({ "pushLayer(shared_ptr<Layer>) " + std::string{ typeid(layer).name() }});
 			layerStack.emplace_back(layer);
 			layer->OnAttach();
 		}
