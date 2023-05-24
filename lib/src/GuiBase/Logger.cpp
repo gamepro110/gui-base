@@ -11,7 +11,7 @@ namespace GuiBase {
 
     void Logger::log(std::string_view str) {
         if (level >= LogLevel::log) {
-            print(str, std::string{"[log " + std::string{ __FILE__ } + "]: "});
+            print(str, std::string{"[log]: "});
         }
     }
 
