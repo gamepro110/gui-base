@@ -9,23 +9,10 @@
 namespace GuiBase {
     LogLevel Logger::level = LogLevel::log;
 
-    void Logger::log(std::string_view str) {
-        if (level >= LogLevel::log) {
-            print(str, std::string{"[log]: "});
-        }
-    }
-
-    void Logger::trace(std::string_view str) {
-        if (level >= LogLevel::trace) {
-            // 36 cyan fg, 40 black bg
-            print(str, "\033[36;40m[trace]: ");
-        }
-    }
-
-    void Logger::warning(std::string_view str) {
-        if (level >= LogLevel::warning) {
-            // 33 yellow fg, 40 black bg
-            print(str, "\033[33;40m[warn]: ");
+    void Logger::critical(std::string_view str) {
+        if (level >= LogLevel::critical) {
+            // 41 red bg, 37 white fg
+            print(str, "\033[41;37m[crit]: ");
         }
     }
 
@@ -36,10 +23,23 @@ namespace GuiBase {
         }
     }
 
-    void Logger::critical(std::string_view str) {
-        if (level >= LogLevel::critical) {
-            // 41 red bg, 37 white fg
-            print(str, "\033[41;37m[crit]: ");
+    void Logger::warning(std::string_view str) {
+        if (level >= LogLevel::warning) {
+            // 33 yellow fg, 40 black bg
+            print(str, "\033[33;40m[warn]: ");
+        }
+    }
+
+    void Logger::trace(std::string_view str) {
+        if (level >= LogLevel::trace) {
+            // 36 cyan fg, 40 black bg
+            print(str, "\033[36;40m[trace]: ");
+        }
+    }
+
+    void Logger::log(std::string_view str) {
+        if (level >= LogLevel::log) {
+            print(str, std::string{"[log]: "});
         }
     }
 

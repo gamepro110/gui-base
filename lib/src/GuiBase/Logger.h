@@ -14,11 +14,11 @@ namespace GuiBase {
 
     class Logger {
     public:
-        static void log(std::string_view str);
-        static void trace(std::string_view str);
-        static void warning(std::string_view str);
-        static void error(std::string_view str);
         static void critical(std::string_view str);
+        static void error(std::string_view str);
+        static void warning(std::string_view str);
+        static void trace(std::string_view str);
+        static void log(std::string_view str);
         static void setLogLevel(const LogLevel& lv);
 
     private:
@@ -30,9 +30,9 @@ namespace GuiBase {
 
 }
 
+#define CRIT(str)       GuiBase::Logger::critical(str);
+#define ERROR(str)      GuiBase::Logger::error(str);
+#define WARN(str)       GuiBase::Logger::warning(str);
 #define LOG(str)        GuiBase::Logger::log(str);
 #define TRACE(str)      GuiBase::Logger::trace(str);
-#define WARN(str)       GuiBase::Logger::warning(str);
-#define ERROR(str)      GuiBase::Logger::error(str);
-#define CRIT(str)       GuiBase::Logger::critical(str);
 

@@ -3,6 +3,8 @@ file(
     GLOB
     example_src
     src/example.cpp
+    src/GuiExample.cpp
+    src/GuiExample.h
 )
 
 add_executable(
