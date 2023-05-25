@@ -9,6 +9,7 @@ file(
 
 add_executable(
     example
+    EXCLUDE_FROM_ALL
     ${example_src}
 )
 

@@ -1,6 +1,5 @@
 # pragma once
 
-#include "GuiBase/Entrypoint.h"
 #include "GuiBase/App.h"
 #include "GuiBase/Layer.h"
 #include "GuiBase/Logger.h"
