@@ -1,7 +1,7 @@
 # global config
 cmake_minimum_required(
     VERSION
-    3.18
+    3.21
 )
 
 project(
@@ -9,8 +9,12 @@ project(
     LANGUAGES CXX
 )
 
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+option(buildGuiBaseExample "should the example be build?" false)
 
 if(currentPreset STREQUAL "Debug")
 	add_definitions(-DDEBUG)
@@ -35,5 +39,9 @@ add_compile_options(
 )
 
 add_subdirectory(lib)
-add_subdirectory(example)
+
+if  (buildGuiBaseExample)
+    add_subdirectory(example)
+endif  (buildGuiBaseExample)
+
 add_subdirectory(tests)
